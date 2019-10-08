@@ -37,8 +37,6 @@ class Song
     song.save
     song
 
-    # Or, as a one-liner:
-    # new(name).tap{ |s| s.save }
   end
 
   def self.find_by_name(name)
