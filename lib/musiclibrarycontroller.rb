@@ -41,17 +41,7 @@ class MusicLibraryController
       puts "#{i}. #{s.artist.name} - #{s.name} - #{s.genre.name}"
     end
   end
- def list_artists
-    sorted_library = self.library(Artist).sort_by {|object|object.name}
-    artists = sorted_library.collect {|object|"#{object.name}"}.uniq
-    artists.each {|artist| puts "#{artists.index(artist) + 1}. #{artist}"}
-  end
 
-  def list_genres
-    sorted_library = self.library.sort_by {|song|song.genre.name}
-    genres = sorted_library.collect {|song|"#{song.genre.name}"}.uniq
-    genres.each {|genre| puts "#{genres.index(genre) + 1}. #{genre}"}
-  end
   def list_artists
     Artist.all.sort{ |a, b| a.name <=> b.name }.each.with_index(1) do |a, i|
       puts "#{i}. #{a.name}"
